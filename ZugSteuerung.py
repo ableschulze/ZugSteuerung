@@ -1,13 +1,13 @@
-# -*- coding: cp1252 -*-
+# -*- coding: utf-8 -*-
 
 import socket
 import sys
 
 #IP Adresse der Zentrale z21 in meinem Netzwerk
 UDP_IP = "192.168.0.111"
-#Port über den die Kommunikation stattfinden soll, siehe Schnittstelle
+#Port Ã¼ber den die Kommunikation stattfinden soll, siehe Schnittstelle
 UDP_PORT = 21105
-#Variable für die zu versendenen Nachrichten
+#Variable fÃ¼r die zu versendenen Nachrichten
 MESSAGE = ""
 
 print ("UDP target IP:", UDP_IP)
@@ -26,18 +26,19 @@ except:
 
 print("Socket wurde erstellt!")
 
-#Die Nachricht für den Befehl - Notaus ... ist das so richtig :D ?
+#Die Nachricht fÃ¼r den Befehl - Notaus ... ist das so richtig :D ?
 #ich habe noch nie eine Netzwerk - Anwendung geschrieben, geschweige denn ein
 #UDP Paket zum versenden vorbereitet ;D
-print("NOTAUS wird gesendet ...");
-MESSAGE = "x06\x00\x40\x00\x00\x80\x80"
+MESSAGE = "\x06\x00\x40\x00\x80\x80"
+print("NOTAUS wird gesendet ..." + MESSAGE);
+
 sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
 
-#Schließen des Sockets
+#SchlieÃŸen des Sockets
 sock.close()
 
 #Wenn das klappt mach ich weiter ;)
-#Die Zentrale bekommt nämlich irgendwie die Nachricht nicht ... also macht einfach nichts
+#Die Zentrale bekommt nÃ¤mlich irgendwie die Nachricht nicht ... also macht einfach nichts
 #Ist das denn so weit richtig ?
 
 
