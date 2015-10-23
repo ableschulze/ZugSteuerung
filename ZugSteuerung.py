@@ -2,11 +2,12 @@
 
 import socket
 import sys
+import struct
 
 #IP Adresse der Zentrale z21 in meinem Netzwerk
 UDP_IP = "192.168.0.111"
 #Port über den die Kommunikation stattfinden soll, siehe Schnittstelle
-UDP_PORT = 21105
+UDP_PORT = 21106
 #Variable für die zu versendenen Nachrichten
 MESSAGE = ""
 
@@ -29,6 +30,10 @@ print("Socket wurde erstellt!")
 #Die Nachricht für den Befehl - Notaus ... ist das so richtig :D ?
 #ich habe noch nie eine Netzwerk - Anwendung geschrieben, geschweige denn ein
 #UDP Paket zum versenden vorbereitet ;D
+values = ('x06','x00','x40','x00','x80','x80')
+#s = struct.pack('<H','\x06\x00\x40\x00\x80\x80')
+#print (s)
+#packed_data = s.pack(values)
 MESSAGE = "\x06\x00\x40\x00\x80\x80"
 print("NOTAUS wird gesendet ..." + MESSAGE);
 
